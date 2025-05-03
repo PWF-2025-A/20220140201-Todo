@@ -102,7 +102,7 @@ public function destroyCompleted()
 {
     // get all todos for current user where is_complete is true
     $todosCompleted = Todo::where('user_id', auth()->user()->id)
-        ->where('is_complete', true)
+        ->where('is_done', true)
         ->get();
 
     foreach ($todosCompleted as $todo) {
