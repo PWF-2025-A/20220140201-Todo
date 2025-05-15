@@ -4,8 +4,9 @@
             {{ __('Todo') }}
         </h2>
     </x-slot>
-
-    <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
         <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
             <div class="flex items-center justify-between">
                 <div>
@@ -35,6 +36,7 @@
                     <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">Title</th>
+                            <th scope="col" class="px-6 py-3">Category</th>
                             <th scope="col" class="px-6 py-3">Status</th>
                             <th scope="col" class="px-6 py-3">Action</th>
                         </tr>
@@ -46,6 +48,9 @@
                                 <td scope="row" class="px-6 py-4 font-medium text-white dark:text-gray-900">
                                     <a href="{{ route('todo.edit', $data) }}"
                                         class="hover:underline text-xs">{{ $data->title }}</a>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-white dark:text-gray-900">
+                                    {{ $data->category ? $data->category->title : 'Empty' }}
                                 </td>
                                 <td class="px-6 py-4 md:block">
                                     @if ($data->is_done == false)
@@ -119,4 +124,9 @@
             </div>
         @endif
     </div>
+        </div>
+    </div>
+    
+
+    
 </x-app-layout>

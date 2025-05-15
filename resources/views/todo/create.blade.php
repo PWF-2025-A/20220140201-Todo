@@ -20,6 +20,16 @@ w-full mt-1"
 required autofocus autocomplete="title" />
 <x-input-error class="mt-2" :messages="$errors->get('title')" />
 </div>
+<div class="mb-6">
+<x-input-label for="category_id" :value="__('Category')" />
+<select id="category_id" name="category_id" class="block w-full mt-1 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+<option value="">Empty</option>
+@foreach ($categories as $category)
+<option value="{{ $category->id }}">{{ $category->title }}</option>
+@endforeach
+</select>
+<x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+</div>
 <div class="flex items-center gap-4">
 <x-primary-button>{{ __('Save') }}</x-primary-button>
 <a href="{{ route('todo.index') }}"
